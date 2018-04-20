@@ -1,0 +1,23 @@
+{
+  "name": "json-vri-validator",
+  "version": "1.0.0",
+  "description": "Validates a JSON instance of the Voter Records Interchange Format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hilton Roscoe LLC",
+  "license": "MIT",
+  "dependencies": {
+    "@stekoe/ocl.js": "git+https://github.com/theturnout/ocl.js.git",
+    "foreach": "^2.0.5",
+    "json-pointer": "^0.6.0"
+  },
+  "devDependencies": {
+    "@types/json-pointer": "^1.0.30",
+    "@types/node": "^9.6.6",
+    "ajv-cli": "^3.0.0",
+    "ts-node": "^6.0.0",
+    "typescript": "^2.8.3"
+  }
+}
