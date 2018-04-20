@@ -4,7 +4,11 @@
   "description": "Validates a JSON instance of the Voter Records Interchange Format",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "tsc -p .",
+    "build": "npm run compile",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "tsc -w -p .",
+    "start": "node ./dist"
   },
   "author": "Hilton Roscoe LLC",
   "license": "MIT",
