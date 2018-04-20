@@ -25,7 +25,7 @@ interface OclConstraintError {
 const constraints: OclConstraint[] = [
     {
         expression: `context AdditionalInfo 
-            inv doItRight: self.StringValue->oclIsUndefined() xor self.FileValue->oclIsUndefined()`,
+            inv AiMustChooseOne: self.StringValue->oclIsUndefined() xor self.FileValue->oclIsUndefined()`,
         errorMessage: "FileValue or StringValue must be defined (but not both)"
     },
     {

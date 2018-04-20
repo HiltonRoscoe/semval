@@ -1,5 +1,13 @@
-{ 
+{
 	"@type": "VRI.VoterRecordsRequest",
+	"AdditionalInfo": [
+		{
+			"@type": "VRI.AdditionalInfo",
+			"Name": "Some Additional Details",
+			"FileValue": "FileStuff",
+			"StringValue": "StringStuff"
+		}
+	],
 	"BallotRequest": {
 		"@type": "VRI.ElectionBasedBallotRequest",
 		"Election": {
@@ -28,12 +36,13 @@
 		],
 		"DateOfBirth": "1957-08-13",
 		"Gender": "female",
-		
 		"Name": {
 			"@type": "VRI.Name",
 			"FirstName": "Patty",
 			"LastName": "Smith",
-			"MiddleName": ["Sarah"]
+			"MiddleName": [
+				"Sarah"
+			]
 		},
 		"Party": {
 			"@type": "VRI.Party",
@@ -43,26 +52,34 @@
 			"@type": "VRI.Name",
 			"FirstName": "Patricia",
 			"LastName": "Sekusky",
-			"MiddleName": ["Sarah"]
+			"MiddleName": [
+				"Sarah"
+			]
 		},
 		"ResidenceAddress": {
 			"@type": "FGDCAddressStandard.NumberedThoroughfareAddress_type"
-			
 		},
-		"VoterClassification": [{			
-"@type": "VRI.VoterClassification",
-			"Assertion": "other",
-			"OtherAssertion": "Virginia Tech",
-			"OtherType": "college-student",
-			"Type": "other"
-		}],
-		"VoterId": [{
-            "@type": "VRI.VoterId",
-			"StringValue": "1234",
-			"Type": "ssn4"
-		}]
+		"VoterClassification": [
+			{
+				"@type": "VRI.VoterClassification",
+				"Assertion": "other",
+				"OtherAssertion": "Virginia Tech",
+				"OtherType": "college-student",
+				"Type": "other"
+			}
+		],
+		"VoterId": [
+			{
+				"@type": "VRI.VoterId",
+				"StringValue": "1234",
+				"Type": "ssn4",
+				"OtherType": "none"
+			}
+		]
 	},
 	"TransactionId": "String",
-	"Type": ["registration"],
+	"Type": [
+		"registration"
+	],
 	"VendorApplicationId": "VRI POC APP"
 }
