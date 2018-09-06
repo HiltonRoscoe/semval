@@ -1,3 +1,5 @@
+
+(global as any).window = undefined; // Needed to avoid exception at import..
 import OclEngine from "@stekoe/ocl.js";
 import pointer from "json-pointer";
 import each from "foreach";
@@ -6,7 +8,7 @@ oclEngine.setTypeDeterminer((obj: any) => {
     // get ocl context name from JSON schema @type
     if (obj) {
         // remove the VRI. prefix. This will need to be handled better.
-        let ctx = obj["@type"] != undefined ? obj["@type"].split(".")[1] : undefined;        
+        let ctx = obj["@type"] != undefined ? obj["@type"].split(".")[1] : undefined;
         return ctx;
     }
 });
@@ -32,7 +34,35 @@ const constraints: OclConstraint[] = [
         expression: `context VoterId 
             inv ViOtherTypeMustBeDefined: self.Type <> "other" implies self.OtherType->oclIsUndefined()`,
         errorMessage: "OtherType must be defined when Type = other"
+    },
+    {
+        expression: `context VoterRecordsRequest
+        inv IssuerRequired: self.Issuer->size() > 0`,
+        errorMessage: "An issuer must be specified"
+    },
+    {
+        expression: `context VoterRecordsRequest
+        inv OnlyBallots: self.Type->exists(c | c = "ballot-request")
+            and self.Type->size() = 1`,
+        errorMessage: `There may be only one Type, and it must be set to "ballot-request"`
+    },
+    {
+        expression: `context VoterRecordsRequest
+        inv VaForm: self.Form = "other" implies
+            self.OtherForm = "SBE-701" or self.OtherForm = "SBE-703.1"`,
+        errorMessage: `There form must be a known type`
+    },
+    {
+        expression: `context Voter
+            inv ssnRequired: self.VoterId->exists(c | self.Type = "ssn" or self.Type = "ssn4")`,
+        errorMessage: `ssn4 or full ssn is required`
+    },
+    {
+        expression: `context VoterId
+            inv voterIdString: StringValue->size() > 0`,
+        errorMessage: `There form must be a known type`
     }
+
 ];
 // add constraints to Ocl Engine
 constraints.forEach(oclConstraint => oclEngine.addOclExpression(oclConstraint.expression));
@@ -65,7 +95,7 @@ const oclWalk = function walk(obj: Object, iterator: (value: any, pointer: strin
             if (descend(value)) {
                 iterator(value, pointer.compile(refTokens));
                 next(value);
-            } 
+            }
             refTokens.pop();
         });
     }(obj));
@@ -74,7 +104,7 @@ const oclWalk = function walk(obj: Object, iterator: (value: any, pointer: strin
 oclWalk(jsonInstance, function (value, pointer) {
     // console.log(`ptr: ${pointer}`);
     const validationResult = oclEngine.evaluate(value);
-        //console.log(JSON.stringify(value));
+    //console.log(JSON.stringify(value));
     //console.log(JSON.stringify(validationResult));    
     if (!validationResult.result) {
         const currentValidationErrors = validationResult.namesOfFailedInvs.map(o => {
@@ -86,4 +116,3 @@ oclWalk(jsonInstance, function (value, pointer) {
 
 // report errors to the console
 console.log(JSON.stringify(validationErrors));
-
