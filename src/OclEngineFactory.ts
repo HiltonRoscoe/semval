@@ -1,6 +1,6 @@
 import OclEngine from "@stekoe/ocl.js";
 export class OclEngineFactory {
-    static getOclEngine() {
+    public static getOclEngine() {
         const oclEngine = new OclEngine();
         oclEngine.setTypeDeterminer((obj: any) => {
             // get ocl context name from JSON schema @type
