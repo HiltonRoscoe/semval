@@ -1,0 +1,102 @@
+{
+    "VaVoterId": {
+        "@type": "VRI.VoterId",
+        "Type": "ssn"
+    },
+    "VaGeneralRequest": {
+        "@type": "VRI.Voter",
+        "VoterClassification": [
+            {
+                "@type": "VRI.VoterClassification",
+                "Type": "eighteen-on-election-day"
+            }
+        ],
+        "VoterId": [
+            {
+                "@type": "VRI.VoterId",
+                "Type": "ssn"
+            }
+        ],
+        "Type": [
+            "registration"
+        ],
+        "DateOfBirth": "9/6/18"
+    },
+    "VaVoterClassification": {
+        "@type": "VRI.VoterClassification",
+        "Type": "eighteen-on-election-day"
+    },
+    "VaVoterRegistration": {
+        "@type": "VRI.VoterId"
+    },
+    "XorString": {
+        "@type": "VRI.AdditionalInfo",
+        "StringValue": "123456",
+        "Name": "AdditionalInfoName"
+    },
+    "fOtherContactMethod": {
+        "@type": "VRI.ContactMethod",
+        "Type": "other"
+    },
+    "pOtherContactMethod": {
+        "@type": "VRI.ContactMethod",
+        "Type": "other",
+        "OtherType": "skype",
+        "Value": "123454"
+    },
+    "XorString1": {
+        "@type": "VRI.AdditionalInfo",
+        "Name": "AdditionalInfoName",
+        "StringValue": "123456"
+    },
+    "fExternalIdentifier": {
+        "@type": "VRI.ExternalIdentifier",
+        "Type": "other",
+        "Value": "14"
+    },
+    "pExternalIdentifier": {
+        "@type": "VRI.ExternalIdentifier",
+        "Type": "other",
+        "Value": "14",
+        "OtherType": "post-office"
+    },
+    "fVoterClassification": {
+        "@type": "VRI.VoterClassification",
+        "Type": "other"
+    },
+    "pVoterClassification": {
+        "@type": "VRI.VoterClassification",
+        "Type": "other",
+        "OtherType": "permanetly-denied",
+        "Assertion": "yes"
+    },
+    "fRequestProxy": {
+        "@type": "VRI.RequestProxy",
+        "Type": "other"
+    },
+    "pRequestProxy": {
+        "@type": "VRI.RequestProxy",
+        "Type": "other",
+        "OtherType": ""
+    },
+    "fSignature": {
+        "@type": "VRI.Signature",
+        "Type": "other"
+    },
+    "pSignature": {
+        "@type": "VRI.Signature",
+        "Type": "other",
+        "OtherType": "receipt"
+    },
+    "pVoterId": {
+        "@type": "VRI.VoterId",
+        "Type": "other",
+        "OtherType": "unknown",
+        "StringValue": "actualValue"
+    },
+    "fVoterId": {
+        "@type": "VRI.VoterId",
+        "StringValue": "actualValue",
+        "Type": "other"
+    }
+}

@@ -1,0 +1,30 @@
+[
+    {
+        "errorMessage": "OtherType must be defined when Type = other",
+        "expression": "self.Type = VoterClassificationType::other implies not self.OtherType.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "FileValue or StringValue must be defined (but not both)",
+        "expression": "not self.StringValue.oclIsUndefined() xor not self.FileValue.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "OtherType must be defined when Type = other",
+        "expression": "self.Type = ContactMethodType::other implies not self.OtherType.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "OtherType must be defined when Type = other",
+        "expression": "self.Type = IdentifierType::other implies not self.OtherType.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "FileValue or StringValue must be defined (but not both)",
+        "expression": "not self.StringValue.oclIsUndefined() xor not self.FileValue.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "OtherType must be defined when Type = other",
+        "expression": "self.Type = VoterIdType::other implies not self.OtherType.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "When OtherType is defined, Type must be other",
+        "expression": "not self.OtherType.oclIsUndefined() implies self.Type = VoterClassificationType::other"
+    }
+]

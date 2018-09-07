@@ -1,0 +1,46 @@
+[
+    {
+        "errorMessage": "OtherType must be defined when Type = other",
+        "expression": "context Signature inv SOtherSourceMustBeDefined: self.Type = SignatureType::other implies not self.OtherType.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "OtherType must be defined when Type = other",
+        "expression": "context RequestProxy inv RpOtherTypeMustBeDefined: self.Type = RequestProxyType::other implies not self.OtherType.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "",
+        "expression": "context Name inv NMustDefineOne: self.FirstName.oclIsUndefined() and self.LastName.oclIsUndefined() and self.MiddleName->size() = 0 and self.Prefix.oclIsUndefined() and self.Suffix.oclIsUndefined() implies not self.FullName.oclIsUndefined() "
+    },
+    {
+        "errorMessage": "OtherType must be defined when Type = other",
+        "expression": "context VoterClassification inv VcOtherTypeMustBeDefined: self.Type = VoterClassificationType::other implies not self.OtherType.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "FileValue or StringValue must be defined (but not both)",
+        "expression": "context VoterId inv ViMustChooseOne: not self.StringValue.oclIsUndefined() xor not self.FileValue.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "The start date must occur before or at the end date",
+        "expression": "context Election inv StartDateBeforeEndDate: StartDate <= EndDate"
+    },
+    {
+        "errorMessage": "OtherType must be defined when Type = other",
+        "expression": "context ContactMethod inv CmOtherTypeMustBeDefined: self.Type = ContactMethodType::other implies not self.OtherType.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "OtherType must be defined when Type = other",
+        "expression": "context ExternalIdentifier inv EiOtherTypeMustBeDefined: self.Type = IdentifierType::other implies not self.OtherType.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "FileValue or StringValue must be defined (but not both)",
+        "expression": "context AdditionalInfo inv AiMustChooseOne: not self.StringValue.oclIsUndefined() xor not self.FileValue.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "OtherType must be defined when Type = other",
+        "expression": "context VoterId inv ViOtherTypeMustBeDefined: self.Type = VoterIdType::other implies not self.OtherType.oclIsUndefined()"
+    },
+    {
+        "errorMessage": "When OtherType is defined, Type must be other",
+        "expression": "context VoterClassification inv OtherTypeMustBeDefinedTransitive: not self.OtherType.oclIsUndefined() implies self.Type = VoterClassificationType::other"
+    }
+]
