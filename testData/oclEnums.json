@@ -1,0 +1,166 @@
+{
+	"AssertionValue": {
+		"no": "no",
+		"yes": "yes",
+		"unknown": "unknown",
+		"other": "other"
+	},
+	"BallotReceiptMethod": {
+		"email": "email",
+		"emailoronline": "email-or-online",
+		"fax": "fax",
+		"mail": "mail",
+		"online": "online"
+	},
+	"ContactMethodType": {
+		"email": "email",
+		"phone": "phone",
+		"other": "other"
+	},
+	"IdentifierType": {
+		"fips": "fips",
+		"locallevel": "local-level",
+		"nationallevel": "national-level",
+		"ocdid": "ocd-id",
+		"statelevel": "state-level",
+		"other": "other"
+	},
+	"PhoneCapability": {
+		"fax": "fax",
+		"mms": "mms",
+		"sms": "sms",
+		"voice": "voice"
+	},
+	"ReportingUnitType": {
+		"ballotbatch": "ballot-batch",
+		"ballotstylearea": "ballot-style-area",
+		"borough": "borough",
+		"city": "city",
+		"citycouncil": "city-council",
+		"combinedprecinct": "combined-precinct",
+		"congressional": "congressional",
+		"county": "county",
+		"countycouncil": "county-council",
+		"dropbox": "drop-box",
+		"judicial": "judicial",
+		"municipality": "municipality",
+		"pollingplace": "polling-place",
+		"precinct": "precinct",
+		"school": "school",
+		"special": "special",
+		"splitprecinct": "split-precinct",
+		"state": "state",
+		"statehouse": "state-house",
+		"statesenate": "state-senate",
+		"town": "town",
+		"township": "township",
+		"utility": "utility",
+		"village": "village",
+		"votecenter": "vote-center",
+		"ward": "ward",
+		"water": "water",
+		"other": "other"
+	},
+	"RequestError": {
+		"identitylookupfailed": "identity-lookup-failed",
+		"incomplete": "incomplete",
+		"ineligible": "ineligible",
+		"invalidform": "invalid-form",
+		"other": "other"
+	},
+	"RequestForm": {
+		"fpca": "fpca",
+		"nvra": "nvra",
+		"other": "other"
+	},
+	"RequestMethod": {
+		"armedforcesrecruitmentoffice": "armed-forces-recruitment-office",
+		"motorvehicleoffice": "motor-vehicle-office",
+		"otheragencydesignatedbystate": "other-agency-designated-by-state",
+		"publicassistanceoffice": "public-assistance-office",
+		"registrationdrivefromadvocacygrouporpoliticalparty": "registration-drive-from-advocacy-group-or-political-party",
+		"statefundedagencyservingpersonswithdisabilities": "state-funded-agency-serving-persons-with-disabilities",
+		"voterviaelectionregistrarsoffice": "voter-via-election-registrars-office",
+		"voterviaemail": "voter-via-email",
+		"voterviafax": "voter-via-fax",
+		"voterviainternet": "voter-via-internet",
+		"voterviamail": "voter-via-mail",
+		"unknown": "unknown",
+		"other": "other"
+	},
+	"RequestProxyType": {
+		"armedforcesrecruitmentoffice": "armed-forces-recruitment-office",
+		"motorvehicleoffice": "motor-vehicle-office",
+		"otheragencydesignatedbystate": "other-agency-designated-by-state",
+		"publicassistanceoffice": "public-assistance-office",
+		"registrationdrivefromadvocacygrouporpoliticalparty": "registration-drive-from-advocacy-group-or-political-party",
+		"statefundedagencyservingpersonswithdisabilities": "state-funded-agency-serving-persons-with-disabilities",
+		"other": "other"
+	},
+	"SignatureSource": {
+		"dmv": "dmv",
+		"local": "local",
+		"state": "state",
+		"voter": "voter",
+		"other": "other"
+	},
+	"SignatureType": {
+		"dynamic": "dynamic",
+		"electronic": "electronic",
+		"other": "other"
+	},
+	"SuccessAction": {
+		"addressupdated": "address-updated",
+		"nameupdated": "name-updated",
+		"registrationcancelled": "registration-cancelled",
+		"registrationcreated": "registration-created",
+		"registrationupdated": "registration-updated",
+		"statusupdated": "status-updated",
+		"other": "other"
+	},
+	"VoterClassificationType": {
+		"activatednationalguard": "activated-national-guard",
+		"activeduty": "active-duty",
+		"activedutyspouseordependent": "active-duty-spouse-or-dependent",
+		"citizenabroadintenttoreturn": "citizen-abroad-intent-to-return",
+		"citizenabroadreturnuncertain": "citizen-abroad-return-uncertain",
+		"citizenabroadneverresided": "citizen-abroad-never-resided",
+		"deceased": "deceased",
+		"declaredincompetent": "declared-incompetent",
+		"eighteenonelectionday": "eighteen-on-election-day",
+		"felon": "felon",
+		"permanentlydenied": "permanently-denied",
+		"protectedvoter": "protected-voter",
+		"restoredfelon": "restored-felon",
+		"unitedstatescitizen": "united-states-citizen",
+		"other": "other"
+	},
+	"VoterHelperType": {
+		"assistant": "assistant",
+		"witness": "witness"
+	},
+	"VoterIdType": {
+		"driverslicense": "drivers-license",
+		"localvoterregistrationid": "local-voter-registration-id",
+		"ssn": "ssn",
+		"ssn4": "ssn4",
+		"stateid": "state-id",
+		"statevoterregistrationid": "state-voter-registration-id",
+		"unspecifieddocument": "unspecified-document",
+		"unspecifieddocumentwithnameandaddress": "unspecified-document-with-name-and-address",
+		"unspecifieddocumentwithphotoidentification": "unspecified-document-with-photo-identification",
+		"unknown": "unknown",
+		"other": "other"
+	},
+	"VoterRequestType": {
+		"ballotrequest": "ballot-request",
+		"lookup": "lookup",
+		"registration": "registration",
+		"other": "other"
+	},
+	"VoterStatus": {
+		"active": "active",
+		"confirmation": "confirmation",
+		"other": "other"
+	}
+}

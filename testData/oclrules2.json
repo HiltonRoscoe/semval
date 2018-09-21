@@ -13,7 +13,7 @@
     },
     {
         "errorMessage": "OtherType must be defined when Type = other",
-        "expression": "context VoterClassification inv VcOtherTypeMustBeDefined: self.Type = VoterClassificationType::other implies not self.OtherType.oclIsUndefined()"
+        "expression": "context VoterClassification inv VcOtherTypeMustBeDefined: self.Type = VoterClassificationType::_'other' implies not self.OtherType.oclIsUndefined()"
     },
     {
         "errorMessage": "FileValue or StringValue must be defined (but not both)",
