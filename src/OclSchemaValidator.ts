@@ -1,5 +1,5 @@
 import each from "foreach";
-import pointer from "json-pointer";
+import jsonPointer from "json-pointer";
 import { OclConstraint, OclConstraintError } from "./interfaces";
 import { OclEngineFactory } from "./OclEngineFactory";
 
@@ -16,21 +16,21 @@ export class OclSchemaValidator {
         constraints.forEach((oclConstraint) => this.oclEngine.addOclExpression(oclConstraint.expression));
     }
 
-    public evaluateInstance(jsonInstance: Object) {
+    public evaluateInstance(jsonInstance: object) {
         const validationResult = this.oclEngine.evaluate(jsonInstance);
         const validationErrors: OclConstraintError[] = [];
         if (!validationResult.result) {
-            const currentValidationErrors = validationResult.namesOfFailedInvs.map((o) => {
+            const currentValidationErrors = validationResult.namesOfFailedInvs.map((o: any) => {
                 return { pointer: "/", invName: o };
             });
             validationErrors.push(...currentValidationErrors);
         }
         // code to walk a JSON instance, skipping properties that are non objects
         // and thus not targets of an OCL context.
-        const oclWalk = function walk(obj: Object, iterator: (value: any, pointer: string) => void, descend?: any) {
+        const oclWalk = function walk(obj: object, iterator: (value: any, pointer: string) => void, descend?: any) {
             const refTokens: any[] = [];
 
-            descend = descend || function(value: Object) {
+            descend = descend || function(value: object) {
                 const type = Object.prototype.toString.call(value);
                 return type === "[object Object]" || type === "[object Array]";
             };
@@ -39,7 +39,7 @@ export class OclSchemaValidator {
                 each(cur, function(value: object, key: string) {
                     refTokens.push(String(key));
                     if (descend(value)) {
-                        iterator(value, pointer.compile(refTokens));
+                        iterator(value, jsonPointer.compile(refTokens));
                         next(value);
                     }
                     refTokens.pop();
@@ -47,10 +47,10 @@ export class OclSchemaValidator {
             }(obj));
         };
 
-        oclWalk(jsonInstance, (value, pointer) => {
-            const validationResult = this.oclEngine.evaluate(value);
-            if (!validationResult.result) {
-                const currentValidationErrors = validationResult.namesOfFailedInvs.map((o) => {
+        oclWalk(jsonInstance, (value: object, pointer: any) => {
+            const currentValidationResult = this.oclEngine.evaluate(value);
+            if (!currentValidationResult.result) {
+                const currentValidationErrors = currentValidationResult.namesOfFailedInvs.map((o: any) => {
                     return { pointer, invName: o };
                 });
                 validationErrors.push(...currentValidationErrors);
