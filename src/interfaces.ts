@@ -6,4 +6,4 @@ export interface OclConstraint {
 export interface OclConstraintError {
     pointer: string;
     invName: string;
-};
+}
