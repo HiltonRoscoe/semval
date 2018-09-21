@@ -11,17 +11,17 @@ const rules = constraints;
 program
     .version("0.1.0")
     .option("-o, --oclRules <s>", "OCL rule set")
+    .option("-e, --enumerations <s>", "Enumeration spec")
     .option("-i --instance <s>", "JSON Instance")
     .parse(process.argv);
-const instToTest = require("../testData/oclInstances.json");
-// use example JSON payload if none provided
-const jsonInstance = require(program.instance || "../testData/va_example_1.json");
-
+const instToTest = require(program.instance || "../testData/oclInstances.json");
 const oclEngine = new OclSchemaValidator((program.oclRules && require(program.oclRules)) || constraints);
-const enumerations = require("../testData/oclEnums.json");
+const enumerations = require(program.enumerations || "../testData/oclEnums.json");
 
 for (const key in Object.keys(enumerations)) {
-    oclEngine.registerEnums(key, enumerations[key]);
+    if (enumerations.hasOwnProperty(key)) {
+        oclEngine.registerEnums(key, enumerations[key]);
+    }
 }
 
 // validate the top level object
