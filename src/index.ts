@@ -10,9 +10,10 @@ const rules = constraints;
 // CLI UI stuff
 program
     .version("0.1.0")
+    .description("OCL ruleset runner for JSON")
     .option("-o, --oclRules <s>", "OCL rule set")
     .option("-e, --enumerations <s>", "Enumeration spec")
-    .option("-i --instance <s>", "JSON Instance")
+    .option("-i, --instance <s>", "JSON Instance")
     .parse(process.argv);
 const instToTest = require(program.instance || "../testData/oclInstances.json");
 const oclEngine = new OclSchemaValidator((program.oclRules && require(program.oclRules)) || constraints);
