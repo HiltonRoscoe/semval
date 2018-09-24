@@ -13,23 +13,23 @@
 			{
 				"@type": "VRI.VoterClassification",
 				"Type": "eighteen-on-election-day"
-			},
+			}
 		],
 		"VoterId": [
 			{
 				"@type": "VRI.VoterId",
 				"Type": "ssn"
-			},
+			}
 		],
 		"Type": [
-			"registration",
+			"registration"
 		],
 		"DateOfBirth": "9/6/18"
 	},
 	"VaVoterClassification": {
 		"@type": "VRI.VoterClassification",
 		"Type": "eighteen-on-election-day"
-	},	
+	},
 	"pXorString": {
 		"@type": "VRI.AdditionalInfo",
 		"StringValue": "123456",
@@ -54,7 +54,7 @@
 		"Name": "AdditionalInfoName",
 		"StringValue": "123456",
 		"FileValue": {
-			"@type": "VRI.File",
+			"@type": "VRI.File"
 		}
 	},
 	"fExternalIdentifier": {
@@ -115,31 +115,29 @@
 				{
 					"@type": "VRI.VoterClassification",
 					"Type": "eighteen-on-election-day"
-				},
+				}
 			],
 			"VoterId": [
 				{
 					"@type": "VRI.VoterId",
 					"Type": "ssn"
-				},
+				}
 			],
 			"Type": [
-				"registration",
+				"registration"
 			],
 			"DateOfBirth": "9/6/18"
 		},
 		"Type": [
-			"ballot-request",
+			"ballot-request"
 		],
 		"BallotRequest": {
-			"@type": "VRI.PermanentBallotRequest",
+			"@type": "VRI.PermanentBallotRequest"
 		}
 	},
-	
 	"VaAbsenteeReq": {
-		"@type": "VRI.PermanentBallotRequest",
+		"@type": "VRI.PermanentBallotRequest"
 	},
-	
 	"VaName": {
 		"@type": "VRI.Name",
 		"FirstName": "Warren",
@@ -147,10 +145,10 @@
 		"FullName": "Warren Beatty"
 	},
 	"fName": {
-		"@type": "VRI.Name",
+		"@type": "VRI.Name"
 	},
 	"myFile": {
-		"@type": "VRI.File",
+		"@type": "VRI.File"
 	},
 	"fVaVoterRecordsReq": {
 		"@type": "VRI.VoterRecordsRequest",
@@ -160,21 +158,21 @@
 				{
 					"@type": "VRI.VoterClassification",
 					"Type": "eighteen-on-election-day"
-				},
+				}
 			],
 			"VoterId": [
 				{
 					"@type": "VRI.VoterId",
 					"Type": "ssn"
-				},
+				}
 			],
 			"Type": [
-				"registration",
+				"registration"
 			],
 			"DateOfBirth": "9/6/18"
 		},
 		"Type": [
 			"ballot-request"
 		]
-	},
+	}
 }

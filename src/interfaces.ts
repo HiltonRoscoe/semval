@@ -1,4 +1,5 @@
 export interface OclConstraint {
+    name: string;
     expression: string;
     errorMessage?: string;
 }
