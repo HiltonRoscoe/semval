@@ -1,102 +1,180 @@
 {
-    "VaVoterId": {
-        "@type": "VRI.VoterId",
-        "Type": "ssn"
-    },
-    "VaGeneralRequest": {
-        "@type": "VRI.Voter",
-        "VoterClassification": [
-            {
-                "@type": "VRI.VoterClassification",
-                "Type": "eighteen-on-election-day"
-            }
-        ],
-        "VoterId": [
-            {
-                "@type": "VRI.VoterId",
-                "Type": "ssn"
-            }
-        ],
-        "Type": [
-            "registration"
-        ],
-        "DateOfBirth": "9/6/18"
-    },
-    "VaVoterClassification": {
-        "@type": "VRI.VoterClassification",
-        "Type": "eighteen-on-election-day"
-    },
-    "VaVoterRegistration": {
-        "@type": "VRI.VoterId"
-    },
-    "XorString": {
-        "@type": "VRI.AdditionalInfo",
-        "StringValue": "123456",
-        "Name": "AdditionalInfoName"
-    },
-    "fOtherContactMethod": {
-        "@type": "VRI.ContactMethod",
-        "Type": "other"
-    },
-    "pOtherContactMethod": {
-        "@type": "VRI.ContactMethod",
-        "Type": "other",
-        "OtherType": "skype",
-        "Value": "123454"
-    },
-    "XorString1": {
-        "@type": "VRI.AdditionalInfo",
-        "Name": "AdditionalInfoName",
-        "StringValue": "123456"
-    },
-    "fExternalIdentifier": {
-        "@type": "VRI.ExternalIdentifier",
-        "Type": "other",
-        "Value": "14"
-    },
-    "pExternalIdentifier": {
-        "@type": "VRI.ExternalIdentifier",
-        "Type": "other",
-        "Value": "14",
-        "OtherType": "post-office"
-    },
-    "fVoterClassification": {
-        "@type": "VRI.VoterClassification",
-        "Type": "other"
-    },
-    "pVoterClassification": {
-        "@type": "VRI.VoterClassification",
-        "Type": "other",
-        "OtherType": "permanetly-denied",
-        "Assertion": "yes"
-    },
-    "fRequestProxy": {
-        "@type": "VRI.RequestProxy",
-        "Type": "other"
-    },
-    "pRequestProxy": {
-        "@type": "VRI.RequestProxy",
-        "Type": "other",
-        "OtherType": ""
-    },
-    "fSignature": {
-        "@type": "VRI.Signature",
-        "Type": "other"
-    },
-    "pSignature": {
-        "@type": "VRI.Signature",
-        "Type": "other",
-        "OtherType": "receipt"
-    },
-    "pVoterId": {
-        "@type": "VRI.VoterId",
-        "Type": "other",
-        "OtherType": "unknown",
-        "StringValue": "actualValue"
-    },
-    "fVoterId": {
-        "@type": "VRI.VoterId",
-        "StringValue": "actualValue",
-        "Type": "other"
-    }
+	"phone": {
+		"@type": "VRI.PhoneContactMethod",
+		"Type": "phone"
+	},
+	"VaVoterId": {
+		"@type": "VRI.VoterId",
+		"Type": "ssn"
+	},
+	"VaVoter": {
+		"@type": "VRI.Voter",
+		"VoterClassification": [
+			{
+				"@type": "VRI.VoterClassification",
+				"Type": "eighteen-on-election-day"
+			},
+		],
+		"VoterId": [
+			{
+				"@type": "VRI.VoterId",
+				"Type": "ssn"
+			},
+		],
+		"Type": [
+			"registration",
+		],
+		"DateOfBirth": "9/6/18"
+	},
+	"VaVoterClassification": {
+		"@type": "VRI.VoterClassification",
+		"Type": "eighteen-on-election-day"
+	},	
+	"pXorString": {
+		"@type": "VRI.AdditionalInfo",
+		"StringValue": "123456",
+		"Name": "AdditionalInfoName"
+	},
+	"signature": {
+		"@type": "VRI.Signature",
+		"Type": "dynamic"
+	},
+	"fOtherContactMethod": {
+		"@type": "VRI.ContactMethod",
+		"Type": "other"
+	},
+	"pOtherContactMethod": {
+		"@type": "VRI.ContactMethod",
+		"Type": "other",
+		"OtherType": "skype",
+		"Value": "123454"
+	},
+	"fXorString": {
+		"@type": "VRI.AdditionalInfo",
+		"Name": "AdditionalInfoName",
+		"StringValue": "123456",
+		"FileValue": {
+			"@type": "VRI.File",
+		}
+	},
+	"fExternalIdentifier": {
+		"@type": "VRI.ExternalIdentifier",
+		"Type": "other",
+		"Value": "14"
+	},
+	"pExternalIdentifier": {
+		"@type": "VRI.ExternalIdentifier",
+		"Type": "other",
+		"Value": "14",
+		"OtherType": "post-office"
+	},
+	"fVoterClassification": {
+		"@type": "VRI.VoterClassification",
+		"Type": "other"
+	},
+	"pVoterClassification": {
+		"@type": "VRI.VoterClassification",
+		"Type": "other",
+		"OtherType": "permanetly-denied",
+		"Assertion": "yes"
+	},
+	"fRequestProxy": {
+		"@type": "VRI.RequestProxy",
+		"Type": "other"
+	},
+	"pRequestProxy": {
+		"@type": "VRI.RequestProxy",
+		"Type": "other",
+		"OtherType": ""
+	},
+	"fSignature": {
+		"@type": "VRI.Signature",
+		"Type": "other"
+	},
+	"pSignature": {
+		"@type": "VRI.Signature",
+		"Type": "other",
+		"OtherType": "receipt"
+	},
+	"pVoterId": {
+		"@type": "VRI.VoterId",
+		"Type": "other",
+		"OtherType": "unknown",
+		"StringValue": "actualValue"
+	},
+	"fVoterId": {
+		"@type": "VRI.VoterId",
+		"StringValue": "actualValue",
+		"Type": "other"
+	},
+	"VaVoterRecordsReq": {
+		"@type": "VRI.VoterRecordsRequest",
+		"Subject": {
+			"@type": "VRI.Voter",
+			"VoterClassification": [
+				{
+					"@type": "VRI.VoterClassification",
+					"Type": "eighteen-on-election-day"
+				},
+			],
+			"VoterId": [
+				{
+					"@type": "VRI.VoterId",
+					"Type": "ssn"
+				},
+			],
+			"Type": [
+				"registration",
+			],
+			"DateOfBirth": "9/6/18"
+		},
+		"Type": [
+			"ballot-request",
+		],
+		"BallotRequest": {
+			"@type": "VRI.PermanentBallotRequest",
+		}
+	},
+	
+	"VaAbsenteeReq": {
+		"@type": "VRI.PermanentBallotRequest",
+	},
+	
+	"VaName": {
+		"@type": "VRI.Name",
+		"FirstName": "Warren",
+		"LastName": "Beatty",
+		"FullName": "Warren Beatty"
+	},
+	"fName": {
+		"@type": "VRI.Name",
+	},
+	"myFile": {
+		"@type": "VRI.File",
+	},
+	"fVaVoterRecordsReq": {
+		"@type": "VRI.VoterRecordsRequest",
+		"Subject": {
+			"@type": "VRI.Voter",
+			"VoterClassification": [
+				{
+					"@type": "VRI.VoterClassification",
+					"Type": "eighteen-on-election-day"
+				},
+			],
+			"VoterId": [
+				{
+					"@type": "VRI.VoterId",
+					"Type": "ssn"
+				},
+			],
+			"Type": [
+				"registration",
+			],
+			"DateOfBirth": "9/6/18"
+		},
+		"Type": [
+			"ballot-request"
+		]
+	},
 }
