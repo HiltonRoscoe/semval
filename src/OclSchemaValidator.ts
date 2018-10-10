@@ -1,4 +1,4 @@
-import each from "foreach";
+const each = require("foreach");
 import jsonPointer from "json-pointer";
 import { OclConstraint, OclConstraintError } from "./interfaces";
 import { OclEngineFactory } from "./OclEngineFactory";
@@ -30,13 +30,13 @@ export class OclSchemaValidator {
         const oclWalk = function walk(obj: object, iterator: (value: any, pointer: string) => void, descend?: any) {
             const refTokens: any[] = [];
 
-            descend = descend || function(value: object) {
+            descend = descend || function (value: object) {
                 const type = Object.prototype.toString.call(value);
                 return type === "[object Object]" || type === "[object Array]";
             };
 
             (function next(cur) {
-                each(cur, function(value: object, key: string) {
+                each(cur, function (value: object, key: string) {
                     refTokens.push(String(key));
                     if (descend(value)) {
                         iterator(value, jsonPointer.compile(refTokens));
