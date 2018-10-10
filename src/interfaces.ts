@@ -1,10 +1,10 @@
-export interface OclConstraint {
+export interface IOclConstraint {
     name: string;
     expression: string;
     errorMessage?: string;
 }
 
-export interface OclConstraintError {
+export interface IOclConstraintError {
     pointer: string;
     invName: string;
 }

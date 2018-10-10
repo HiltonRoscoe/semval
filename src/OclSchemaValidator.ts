@@ -1,6 +1,6 @@
 const each = require("foreach");
 import jsonPointer from "json-pointer";
-import { OclConstraint, OclConstraintError } from "./interfaces";
+import { IOclConstraint, IOclConstraintError } from "./interfaces";
 import { OclEngineFactory } from "./OclEngineFactory";
 
 /**
@@ -10,7 +10,7 @@ export class OclSchemaValidator {
 
     private oclEngine: any;
 
-    constructor(constraints: OclConstraint[]) {
+    constructor(constraints: IOclConstraint[]) {
         this.oclEngine = OclEngineFactory.getOclEngine();
         // add constraints to Ocl Engine
         constraints.forEach((oclConstraint) => this.oclEngine.addOclExpression(oclConstraint.expression));
@@ -18,7 +18,7 @@ export class OclSchemaValidator {
 
     public evaluateInstance(jsonInstance: object) {
         const validationResult = this.oclEngine.evaluate(jsonInstance);
-        const validationErrors: OclConstraintError[] = [];
+        const validationErrors: IOclConstraintError[] = [];
         if (!validationResult.result) {
             const currentValidationErrors = validationResult.namesOfFailedInvs.map((o: any) => {
                 return { pointer: "/", invName: o };

@@ -1,12 +1,12 @@
 import color from "colors/safe";
 import program from "commander";
 (global as any).window = undefined; // Needed to avoid exception at import..
-import { OclConstraint, OclConstraintError } from "./interfaces";
+import { IOclConstraint, IOclConstraintError } from "./interfaces";
 import { OclSchemaValidator } from "./OclSchemaValidator";
 // tslint:disable:no-var-requires
 
 // list of constraints, could be its own JSON file
-const constraints: OclConstraint[] = require("../testData/oclrules2.json");
+const constraints: IOclConstraint[] = require("../testData/oclrules2.json");
 const rules = constraints;
 // CLI UI stuff
 program
