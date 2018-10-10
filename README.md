@@ -31,6 +31,7 @@ context VoterId inv: self.StringValue.oclIsUndefined() xor self.FileValue.oclIsU
 There is a common pattern used throughout NIST 1500 CDFs that allows a producer to specify a custom value if an enumeration does not contain a suitable value.
 
 #### Example
+
 The VRI specification contains a class called `ContactMethod`. The type of `ContactMethod` can be specified by its `Type` attribute. The value of `Type` may be `email`, `phone` or `other`. If the `Type` is `other`, then the actual value is expected in the `OtherType` attribute.
 
 We need a rule that says that OtherType must be defined when Type = other:
