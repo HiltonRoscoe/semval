@@ -3,6 +3,7 @@ import program from "commander";
 (global as any).window = undefined; // Needed to avoid exception at import..
 import { IOclConstraint, IOclConstraintError } from "./interfaces";
 import { OclSchemaValidator } from "./OclSchemaValidator";
+import { SemanticValidation } from "./SemanticValidation";
 // simplifies uses test data
 // tslint:disable:no-var-requires
 
@@ -15,7 +16,7 @@ program
     .description("ocl ruleset runner for json")
     .option("-o, --oclRules <s>", "ocl rule set")
     .option("-e, --enumerations <s>", "enumeration spec")
-    .option("-i, --instance <s>", "json Instance")
+    .option("-i, --instance <s>", "json instance")
     .option("-m, --multiple", "instance file contains multiple instances")
     .parse(process.argv);
 const instToTest = (() => {
@@ -23,39 +24,16 @@ const instToTest = (() => {
     if (program.multiple) {
         return instances;
     } else {
-        return [{ "(unnamed)": instances }];
+        // downstream code expects name / value pairs
+        return { "(unnamed)": instances };
     }
 })();
-const oclEngine = new OclSchemaValidator((program.oclRules && require(program.oclRules)) || constraints);
+// get in format to call semval
+const oclRules = (program.oclRules && require(program.oclRules)) || constraints;
 const enumerations = require(program.enumerations || "../testData/oclEnums.json");
 
-for (const key in enumerations) {
-    if (enumerations.hasOwnProperty(key)) {
-        oclEngine.registerEnums(key, enumerations[key]);
-    }
-}
+const failures = SemanticValidation.validateInstance(instToTest, oclRules, enumerations);
 
-// validate the top level object
-// tslint:disable-next-line:forin
-const failures = [];
-for (const prop in instToTest) {
-    if (instToTest.hasOwnProperty(prop)) {
-        console.log(`testing ${prop}`);
-        const validationErrors = oclEngine.evaluateInstance(instToTest[prop]);
-        if (validationErrors.length > 0) {
-            console.log(color.red(JSON.stringify(validationErrors)));
-            failures.push(validationErrors);
-            if (prop.startsWith("p")) {
-                console.log(color.rainbow("SHOULD PASS"));
-            }
-        } else {
-            console.log(color.green("PASS"));
-        }
-    }
-    // check for rule coverage. We want to make sure our set of rules are tested by
-    //  the JSON instances
-
-}
 // get all the invs that failed, only way we know they were used
 const failedInvs =
     failures.reduce((prev, curr) => {
@@ -63,7 +41,7 @@ const failedInvs =
     }).map((o) => o.invName);
 // get all the constraints that were untested
 const untestedCons = constraints.filter((o) => failedInvs.indexOf(o.name) === -1).map((o) => o.name);
-
-console.log(JSON.stringify(failures));
-console.log(JSON.stringify(failedInvs));
-console.log(JSON.stringify(untestedCons));
+console.log("Coverage");
+//console.log(JSON.stringify(failures));
+console.log(color.green(`tested: ${JSON.stringify(failedInvs)}`));
+console.log(color.red(`untested: ${JSON.stringify(untestedCons)}`));
