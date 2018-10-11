@@ -48,6 +48,36 @@ This prototype provides a command line interface to test a set of JSON instances
 jsonocl --oclRules rulefile.json --instance instanceFile.json
 ```
 
+If not arguments are provided, validation will occur using the ruleset, enumerations, and instances under `testData/`.
+
+### Creating your own rulesets
+
+Rulesets are specified as JSON in the following format:
+
+```typescript
+[
+    {
+        name: string;
+        errorMessage: string;
+        expression: string;
+    }
+    ...
+]
+```
+
+The validator uses the [https://github.com/SteKoe/ocl.js](ocl.js) engine to validate instances against OCL invariants. Please view its documentation for notes regarding OCL support and usage.
+
+### Testing a set of instances
+
+using the `--mutiple` flag will allow you to test a set of JSON instances in a single file. The file must be in the form of:
+
+```typescript
+{
+    "instance_name": object,
+    ...
+}
+```
+
 ## How to run
 
 1. Install node / npm.
