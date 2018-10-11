@@ -3,6 +3,7 @@ import program from "commander";
 (global as any).window = undefined; // Needed to avoid exception at import..
 import { IOclConstraint, IOclConstraintError } from "./interfaces";
 import { OclSchemaValidator } from "./OclSchemaValidator";
+// simplifies uses test data
 // tslint:disable:no-var-requires
 
 // list of constraints, could be its own JSON file
@@ -11,12 +12,20 @@ const rules = constraints;
 // CLI UI stuff
 program
     .version("0.1.0")
-    .description("OCL ruleset runner for JSON")
-    .option("-o, --oclRules <s>", "OCL rule set")
-    .option("-e, --enumerations <s>", "Enumeration spec")
-    .option("-i, --instance <s>", "JSON Instance")
+    .description("ocl ruleset runner for json")
+    .option("-o, --oclRules <s>", "ocl rule set")
+    .option("-e, --enumerations <s>", "enumeration spec")
+    .option("-i, --instance <s>", "json Instance")
+    .option("-m, --multiple", "instance file contains multiple instances")
     .parse(process.argv);
-const instToTest = require(program.instance || "../testData/oclInstances.json");
+const instToTest = (() => {
+    const instances = require(program.instance || "../testData/oclInstances.json");
+    if (program.multiple) {
+        return instances;
+    } else {
+        return [{ "(unnamed)": instances }];
+    }
+})();
 const oclEngine = new OclSchemaValidator((program.oclRules && require(program.oclRules)) || constraints);
 const enumerations = require(program.enumerations || "../testData/oclEnums.json");
 
