@@ -1,8 +1,8 @@
 {
-  "name": "json-vri-validator",
-  "version": "1.0.0",
-  "description": "Validates a JSON instance of the Voter Records Interchange Format",
-  "main": "index.js",
+  "name": "semval",
+  "version": "0.1.0",
+  "description": "Validates JSON instances using Object Constraint Language",
+  "main": "./dist/index.js",
   "scripts": {
     "compile": "tsc -p .",
     "build": "npm run compile",

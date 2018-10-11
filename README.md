@@ -1,4 +1,4 @@
-# json-vri-validator
+# semval
 
 Demonstrates how NIST 1500 CDF JSON instances can be validated by the use of OCL invariants.
 
@@ -69,7 +69,7 @@ The validator uses the [https://github.com/SteKoe/ocl.js](ocl.js) engine to vali
 
 ### Testing a set of instances
 
-using the `--mutiple` flag will allow you to test a set of JSON instances in a single file. The file must be in the form of:
+using the `--multiple` flag will allow you to test a set of JSON instances in a single file. The file must be in the form of:
 
 ```typescript
 {
