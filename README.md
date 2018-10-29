@@ -45,7 +45,7 @@ context ContactMethod inv: self.Type = ContactMethodType::other implies not self
 This prototype provides a command line interface to test a set of JSON instances against a set of OCL constraints.
 
 ```sh
-jsonocl --oclRules rulefile.json --instance instanceFile.json
+semval --oclRules rulefile.json --instance instanceFile.json
 ```
 
 If not arguments are provided, validation will occur using the ruleset, enumerations, and instances under `testData/`.
