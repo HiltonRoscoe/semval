@@ -29,7 +29,6 @@ describe("semantic validation", async function () {
         }];
 
         const validationResult = SemanticValidation.validateInstance(jsonInstance, rules);
-        console.log(JSON.stringify(validationResult));
         expect(validationResult).to.deep.equal([[{ "pointer": "/", "invName": "AiMustChooseOne" }]]);
     });
     it("should validate ocl constraint using MOF enum", async function () {
@@ -67,7 +66,6 @@ describe("semantic validation", async function () {
         }];
 
         const validationResult = SemanticValidation.validateInstance(jsonInstance, rules, enums);
-        console.log(JSON.stringify(validationResult));
         expect(validationResult).to.deep.equal([[{ "pointer": "/", "invName": "OtherTypeMustBeDefinedTransitive" }]]);
     });
 });
