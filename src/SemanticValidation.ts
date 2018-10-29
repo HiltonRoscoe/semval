@@ -4,14 +4,17 @@ import color from "colors/safe";
 
 export class SemanticValidation {
     /**
+     * Wrapper around ocl.js to perform semantic validation.
      * 
-     * @param jsonInstance instance to validate
+     * @param jsonInstance a set of named instances to validate
      * @param oclRules a set of rules to apply to the instance
-     * @param enumerations a optional set of enumerations
+     * @param enumerations an optional set of enumerations
+     * @returns an array of failed object constraints
      */
     public static validateInstance(jsonInstance: any, oclRules: IOclConstraint[], enumerations?: any) {
         const oclEngine = new OclSchemaValidator(oclRules);
-
+        
+        // register any enumerations
         for (const key in enumerations) {
             if (enumerations.hasOwnProperty(key)) {
                 oclEngine.registerEnums(key, enumerations[key]);
