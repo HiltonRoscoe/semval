@@ -1,8 +1,7 @@
 import color from "colors/safe";
 import program from "commander";
 (global as any).window = undefined; // Needed to avoid exception at import..
-import { IOclConstraint, IOclConstraintError } from "./interfaces";
-import { OclSchemaValidator } from "./OclSchemaValidator";
+import { IOclConstraint } from "./interfaces";
 import { SemanticValidation } from "./SemanticValidation";
 // simplifies uses test data
 // tslint:disable:no-var-requires
