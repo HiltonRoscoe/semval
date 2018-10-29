@@ -2,6 +2,9 @@
   "name": "semval",
   "version": "0.1.0",
   "description": "Validates JSON instances using Object Constraint Language",
+  "bin": {
+    "semval": "bin/semval"
+  },
   "main": "./dist/index.js",
   "scripts": {
     "compile": "tsc -p .",
@@ -13,6 +16,10 @@
   },
   "author": "Hilton Roscoe LLC",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HiltonRoscoe/semval"
+  },
   "nyc": {
     "extension": [
       ".ts",
@@ -49,6 +56,7 @@
     "@types/node": "^9.6.35",
     "ajv-cli": "^3.0.0",
     "chai": "^4.2.0",
+    "eslint": "^5.8.0",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
     "ts-node": "^7.0.0",

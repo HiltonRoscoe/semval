@@ -2,6 +2,21 @@
 
 Demonstrates how NIST 1500 CDF JSON instances can be validated by the use of OCL invariants.
 
+<!-- TOC -->
+
+- [semval](#semval)
+    - [Rationale](#rationale)
+        - [Mutual Exclusion (xor)](#mutual-exclusion-xor)
+            - [Example](#example)
+        - [Implication](#implication)
+            - [Example](#example-1)
+    - [Using the prototype](#using-the-prototype)
+        - [Creating your own rulesets](#creating-your-own-rulesets)
+        - [Testing a set of instances](#testing-a-set-of-instances)
+    - [How to run (from source)](#how-to-run-from-source)
+
+<!-- /TOC -->
+
 ## Rationale
 
 There are certain rules that cannot be expressed using a schema language alone.
@@ -19,8 +34,6 @@ Mutual exclusivity describes a situation where either *X* must be true or *Y* mu
 The [VRI model](https://github.com/usnistgov/VoterRecordsInterchange/blob/master/VRI_UML_Documentation.md) contains a class called `AdditionalInfo`.
 
 The additional info in question can be expressed as text (via `StringValue`) or as binary data (via `FileValue`), but not both.
-
-This rule can be expressed by the following OCL constraint:
 
 ```ocl
 context VoterId inv: self.StringValue.oclIsUndefined() xor self.FileValue.oclIsUndefined()
@@ -45,10 +58,15 @@ context ContactMethod inv: self.Type = ContactMethodType::other implies not self
 This prototype provides a command line interface to test a set of JSON instances against a set of OCL constraints.
 
 ```sh
-semval --oclRules rulefile.json --instance instanceFile.json
-```
+Usage: semval [options] <instance> <oclRules> [enums]
 
-If not arguments are provided, validation will occur using the ruleset, enumerations, and instances under `testData/`.
+ocl ruleset runner for json
+
+Options:
+  -V, --version   output the version number
+  -m, --multiple  instance file contains multiple instances
+  -h, --help      output usage information
+```
 
 ### Creating your own rulesets
 
@@ -78,7 +96,7 @@ using the `--multiple` flag will allow you to test a set of JSON instances in a 
 }
 ```
 
-## How to run
+## How to run (from source)
 
 1. Install node / npm.
 2. Run `npm run build`
