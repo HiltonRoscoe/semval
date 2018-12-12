@@ -3,8 +3,16 @@ import program from "commander";
 import { IOclConstraint } from "./interfaces";
 import { SemanticValidation } from "./SemanticValidation";
 import prettyjson from "prettyjson";
+import fs from "fs";
 // simplifies usage of test data
 // tslint:disable:no-var-requires
+const getJsonFile = (fileName: string) => {
+    if (fs.existsSync(fileName)) {
+        return JSON.parse(fs.readFileSync(fileName, "utf-8"));
+    } else {
+        throw new Error(`Cannot find file '${fileName}'`);
+    }
+};
 
 // CLI UI stuff
 program
@@ -15,7 +23,7 @@ program
     .option("-c, --coverage", "append coverage report")
     .action((pInstance, pOclRules, pEnums, opts) => {
         const instToTest = (() => {
-            const instances = require(pInstance);
+            const instances = getJsonFile(pInstance);
             if (program.multiple) {
                 return instances;
             } else {
@@ -23,9 +31,11 @@ program
                 return { "(unnamed)": instances };
             }
         })();
+
+
         // get in format to call semval
-        const oclRules: IOclConstraint[] = (pOclRules && require(pOclRules));
-        const enumerations = pEnums && require(pEnums);
+        const oclRules: IOclConstraint[] = (pOclRules && getJsonFile(pOclRules));
+        const enumerations = pEnums && getJsonFile(pEnums);
 
         const failures = SemanticValidation.validateInstance(instToTest, oclRules, enumerations);
         if (program.coverage) {
