@@ -3,6 +3,7 @@ import program from "commander";
 (global as any).window = undefined; // Needed to avoid exception at import..
 import { IOclConstraint } from "./interfaces";
 import { SemanticValidation } from "./SemanticValidation";
+import prettyjson from "prettyjson";
 // simplifies usage of test data
 // tslint:disable:no-var-requires
 
@@ -38,8 +39,8 @@ program
 
         console.log("Coverage");
         //console.log(JSON.stringify(failures));
-        console.log(color.green(`tested: ${JSON.stringify(failedInvs)}`));
-        console.log(color.red(`untested: ${JSON.stringify(untestedCons)}`));
+        console.log(prettyjson.render((failedInvs));
+        console.log(prettyjson.render(untestedCons, {dashColor: "red"}));
     });    
     if (process.argv.length > 2) {
         program.parse(process.argv);

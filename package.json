@@ -45,7 +45,7 @@
     "foreach": "^2.0.5",
     "inquirer": "^6.2.0",
     "json-pointer": "^0.6.0",
-    "ts-mocha": "^2.0.0"
+    "prettyjson": "^1.2.1"
   },
   "devDependencies": {
     "@types/chai": "^4.1.6",
@@ -54,11 +54,13 @@
     "@types/json-pointer": "^1.0.30",
     "@types/mocha": "^5.2.5",
     "@types/node": "^9.6.35",
+    "@types/prettyjson": "0.0.28",
     "ajv-cli": "^3.0.0",
     "chai": "^4.2.0",
     "eslint": "^5.8.0",
     "mocha": "^5.2.0",
     "nyc": "^13.1.0",
+    "ts-mocha": "^2.0.0",
     "ts-node": "^7.0.0",
     "tslint": "^5.11.0",
     "typescript": "^3.0.3"
