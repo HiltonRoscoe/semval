@@ -10,6 +10,7 @@ Demonstrates how NIST 1500 CDF JSON instances can be validated by the use of OCL
             - [Example](#example)
         - [Implication](#implication)
             - [Example](#example-1)
+    - [Acquiring the prototype](#acquiring-the-prototype)
     - [Using the prototype](#using-the-prototype)
         - [Creating your own rulesets](#creating-your-own-rulesets)
         - [Testing a set of instances](#testing-a-set-of-instances)
@@ -51,6 +52,20 @@ We need a rule that says that OtherType must be defined when Type = other:
 
 ```ocl
 context ContactMethod inv: self.Type = ContactMethodType::other implies not self.OtherType.oclIsUndefined()
+```
+
+Contrariwise, we should have a rule that ensures OtherType is defined only when Type = other:
+
+```ocl
+context ContactMethod inv: not self.OtherType.oclIsUndefined() implies ContactMethodType::other
+```
+
+## Acquiring the prototype
+
+This prototype is available via [node package manager (NPM)](https://www.npmjs.com/package/semval).
+
+```sh
+npm i semval
 ```
 
 ## Using the prototype
