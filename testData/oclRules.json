@@ -57,6 +57,6 @@
     {
         "name": "BallotRequestRequired",
         "errorMessage": "Ballot Request must have BallotRequest obj",
-        "expression": "context VoterRecordsRequest inv BallotRequestRequired: self.Type->exists(c | c = 'ballot-request') implies self.BallotRequest->size() = 1"
+        "expression": "context VoterRecordsRequest inv BallotRequestRequired: self.Type->exists(c | c = 'ballot-request') implies not self.BallotRequest.oclIsUndefined()"
     }
 ]
