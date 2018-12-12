@@ -73,13 +73,14 @@ npm i semval
 This prototype provides a command line interface to test a set of JSON instances against a set of OCL constraints.
 
 ```sh
-Usage: semval [options] <instance> <oclRules> [enums]
+Usage:  [options] <instance> <oclRules> [enums]
 
 ocl ruleset runner for json
 
 Options:
   -V, --version   output the version number
   -m, --multiple  instance file contains multiple instances
+  -c, --coverage  append coverage report
   -h, --help      output usage information
 ```
 
