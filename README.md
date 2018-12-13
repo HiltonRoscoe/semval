@@ -13,6 +13,7 @@ Demonstrates how NIST 1500 CDF JSON instances can be validated by the use of OCL
     - [Acquiring the prototype](#acquiring-the-prototype)
     - [Using the prototype](#using-the-prototype)
         - [Creating your own rulesets](#creating-your-own-rulesets)
+        - [Examples](#examples)
         - [Testing a set of instances](#testing-a-set-of-instances)
     - [How to run (from source)](#how-to-run-from-source)
 
@@ -99,7 +100,11 @@ Rulesets are specified as JSON in the following format:
 ]
 ```
 
-The validator uses the [https://github.com/SteKoe/ocl.js](ocl.js) engine to validate instances against OCL invariants. Please view its documentation for notes regarding OCL support and usage.
+The validator uses the [ocl.js](https://github.com/SteKoe/ocl.js) engine to validate instances against OCL invariants. Please view its documentation for notes regarding OCL support and usage.
+
+### Examples
+
+Take a look at the [testData](./testData) for example instance and rule files.
 
 ### Testing a set of instances
 
